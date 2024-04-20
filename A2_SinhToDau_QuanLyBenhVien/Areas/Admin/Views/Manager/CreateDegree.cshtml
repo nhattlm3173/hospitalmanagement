@@ -1,0 +1,40 @@
+﻿@using A2_SinhToDau_QuanLyBenhVien.Areas.Admin.Controllers
+@model A2_SinhToDau_QuanLyBenhVien.Models.Degree
+@{
+    ViewData["Title"] = "CreateDegree";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="container px-4">
+    <h2 class="mt-3 mb-3 ml-3">Thêm Bằng Cấp</h2>
+    <hr />
+    <div class="row mb-4">
+        <div class="col-md-6 offset-md-3">
+            <form asp-action="CreateDegree" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+@*                 <div class="form-group mb-2">
+                    <label asp-for="Id" class="control-label">ID</label>
+                    <input asp-for="Id" class="form-control" />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div> *@
+                <div class="form-group mb-2">
+                    <label asp-for="DeContent" class="control-label">Bằng Cấp</label>
+                    @Html.TextAreaFor(m => m.DeContent, new { @class = "form-control", rows = 3 })
+                    <span asp-validation-for="DeContent" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="DoctorsId" class="control-label">Bác Sĩ</label>
+                    <select asp-for="DoctorsId" class="form-control" asp-items="ViewBag.Doctors" class="form-control"></select>
+                </div>
+                <div class="form-group mt-3">
+                    <input type="submit" value="Thêm Bằng Cấp" class="w-100 btn btn-lg btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

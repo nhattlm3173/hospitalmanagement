@@ -1,0 +1,202 @@
+﻿<div class="figure-img">
+    <img src="~/Images/backgroundhopital.jpg" alt="Bệnh viện đa khoa sinh tố dâu" class="img-fluid" height="400" />
+</div>
+
+<div class="main-content">
+    <section class="main-services mb-4">
+        <div class="container">
+            <div class="section-title d-flex justify-content-center" style="color: #5a189a;font-size: 1.875rem;font-weight:900;">
+                <span>CÁC DỊNH VỤ CHÍNH</span>
+            </div>
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                @{
+                    var countservice = 0;
+                    foreach (var item in ViewBag.service_all)
+                    {
+                        <div class="col mb-3" id="col-news-service">
+                            <a asp-area="" asp-controller="Service" asp-action="Detail" asp-route-id="@item.Id" class="text-decoration-none text-dark">
+                                <div class="box-img">
+                                    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.MainImg))" class="card-img-top" alt="@item.SVName" />                                 
+                                </div>
+                                <div class="box-body mt-1">
+                                    <h5 class="box-title text-center">@item.SVName</h5>
+                                </div>
+                            </a>
+                        </div>
+                        countservice++;
+                        // Break the loop after 5 items
+                        if (countservice >= 4)
+                        {
+                            break;
+                        }
+                    }
+                }
+            </div>
+            @if (countservice < ViewBag.service_all.Count)
+            {
+                <div class="text-center mt-0">
+                    <a asp-area="" asp-controller="Service" asp-action="Index" class="btn" id="service-show-all">Xem tất cả</a>
+                </div>
+            }
+        </div>
+    </section>
+    <section class="main-news p-5" style="background-color:aliceblue;">
+        <div class="container">
+            <div class="section-title d-flex justify-content-center" style="color: #5a189a;font-size: 1.875rem;font-weight:900;">
+                <span>CÁC TIN TỨC CHÍNH</span>
+            </div>
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                @{
+                    var countNews = 0;
+                    foreach (var item in ViewBag.news_all)
+                    {
+                        <div class="col mb-3" id="col-news-service">
+                            <a asp-area="" asp-controller="News" asp-action="Detail" asp-route-id="@item.Id" class="text-decoration-none text-dark">
+                                <div class="box-img">
+                                    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.MainImg))" class="card-img-top" alt="@item.Title" />
+                                    
+                                </div>
+                                <div class="box-body mt-1">
+                                    <h5 class="box-title text-center">@item.Title</h5>
+                                </div>
+                            </a>
+                        </div>
+                        countNews++;
+                        // Break the loop after 5 items
+                        if (countNews >= 4)
+                        {
+                            break;
+                        }
+                    }
+                }
+            </div>
+            @if (countNews < ViewBag.service_all.Count)
+            {
+                <div class="text-center mt-0">
+                    <a asp-area="" asp-controller="News" asp-action="Index" class="btn" id="service-show-all">Xem tất cả</a>
+                </div>
+            }
+        </div>
+    </section>
+    <section class="about">
+        <div class="container">
+            <div class="section-title d-flex justify-content-center" style="color: #5a189a;font-size: 1.875rem;font-weight:900;">
+                <span>VỀ CHÚNG TÔI</span>
+            </div>
+            <div class="text">
+                <p>Với tâm huyết nâng cao chất lượng khám chữa bệnh và tạo điều kiện thuận lợi cho người dân ngày càng tiếp cận dễ dàng hơn các dịch vụ y tế chất lượng cao và hiện đại.</p>
+            </div>
+        </div>
+        <div class="big-bg">
+            <div class="row" id="row-introduce">
+                <div class="col" id="col-introduce">
+                    <div class="img-wrapper">
+                        <img src="~/Images/vechungtoi.jpg" alt="Về chúng tôi" />
+                    </div>
+                </div>
+                <div class="col" id="col-introduce">
+                    <div class="background">
+                        <div class="content">
+                            <p>
+                                Bệnh Viện Đa Khoa Sinh Tố Dâu là Bệnh viện đầu tiên được thành lập theo mô hình hoàn
+                                toàn tự quản, tận dụng các nguồn lực nội bộ và cam kết mang đến dịch vụ y tế chất lượng
+                                nhất cho cộng đồng. Bệnh viện chính thức khai trương và đi vào hoạt động từ ngày 03 tháng
+                                03 năm 2018. Cùng với tinh thần tiên phong, thấu hiểu, chuẩn mực và an toàn, Bệnh Viện Đa
+                                Khoa Sinh Tố Dâu cam kết áp dụng mô hình quản lý dịch vụ y tế chuyên nghiệp theo chuẩn
+                                quốc tế, nhằm nâng cao chất lượng chăm sóc sức khỏe cho cộng đồng và cung cấp thêm nhiều
+                                lựa chọn trong dịch vụ khám chữa bệnh cho người dân.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about2">
+        <div class="background-overlay"></div>
+        <div class="container">
+            <div class="section-title text-center" style="color: #5a189a;font-size: 1.875rem;font-weight: 900;margin-bottom: 30px;">
+                <span>TẦM NHÌN - SỨ MỆNH</span>
+            </div>
+            <div class="row justify-content-center" id="row-introduce">
+                <div class="col-md-6">
+                    <div class="about-figure position-relative">
+                        <div class="img-overlay"></div> <!-- Phần overlay -->
+                        <img src="~/Images/sumenh1.jpg" alt="Tầm nhìn" class="img-fluid rounded" style="width: 100%;">
+                        <div class="caption text-center position-absolute w-100" style="bottom: 20px; color: #fff;">
+                            <h2>TẦM NHÌN</h2>
+                            <p>Trở thành phòng khám đa khoa chất lượng cao dẫn đầu Việt Nam và đạt chuẩn quốc tế.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-figure position-relative">
+                        <div class="img-overlay"></div> <!-- Phần overlay -->
+                        <img src="~/Images/sumenh3.png" alt="Sứ mệnh" class="img-fluid rounded" style="width: 100%;">
+                        <div class="caption text-center position-absolute w-100" style="bottom: 20px; color: #fff;">
+                            <h2>SỨ MỆNH</h2>
+                            <p>Xây dựng một mô hình chuẩn mực phòng khám đa khoa cung cấp dịch vụ khám bệnh, chữa bệnh chất lượng cao làm hài lòng người bệnh.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about3">
+        <div class="container">
+            <div class="section-title text-center" style="color: #5a189a;font-size: 1.875rem;font-weight: 900;margin-bottom: 30px;">
+                <span>GIÁ TRỊ CỐT LÕI</span>
+            </div>
+            <div class="row" id="row-introduce">
+                <div class="col" id="col-introduce">
+                    <div class="big-img">
+                        <div class="border-img">
+                            <div class="image-wrap">
+                                <img src="~/Icons/tienphong.png" alt="tiên phong" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="txt">
+                        <p>TIÊN PHONG</p>
+                    </div>
+                </div>
+                <div class="col" id="col-introduce">
+                    <div class="big-img">
+                        <div class="border-img">
+                            <div class="image-wrap">
+                                <img src="~/Icons/brain.png" alt="thấu hiểu" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="txt">
+                        <p>THẤU HIỂU</p>
+                    </div>
+                </div>
+                <div class="col" id="col-introduce">
+                    <div class="big-img">
+                        <div class="border-img">
+                            <div class="image-wrap">
+                                <img src="~/Icons/certificate.png" alt="chuẩn mực" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="txt">
+                        <p>CHUẨN MỰC</p>
+                    </div>
+                </div>
+                <div class="col" id="col-introduce">
+                    <div class="big-img">
+                        <div class="border-img">
+                            <div class="image-wrap">
+                                <img src="~/Icons/security.png" alt="an toàn" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="txt">
+                        <p>AN TOÀN</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,87 @@
+﻿@model A2_SinhToDau_QuanLyBenhVien.Models.Appointment
+@{
+    ViewData["Title"] = "MakeAppointment";
+}
+
+
+<div class="row justify-content-center align-items-center mt-5 mb-4" id="main-login-page">
+    <div class="col-md-4 flex-wrap" id="form-login">
+        <h1 class="text-center flex-grow-1 col-12" id="headerloginpage">Đăng ký khám</h1>
+        <section class="flex-grow-1 p-5 mx-5">
+            <form asp-action="MakeAppointment" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-floating mb-3">
+                    <select id="specialistSelect" class="form-control border-radius">
+                        <option value="">Chọn chuyên khoa</option>
+                        @foreach (var specialist in ViewBag.specialist)
+                        {
+                            <option value="@specialist.Value">@specialist.Text</option>
+                        }
+                    </select>
+                    <label class="form-label formlogin">Chuyên khoa</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select id="doctorSelect" asp-for="DoctorsId" class="form-control border-radius">
+                    </select>
+                    <label class="form-label formlogin">Bác sĩ</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Date" type="date" class="form-control border-radius" placeholder="Nhat" id="datePicker" />
+                    <label asp-for="Date" class="form-label formlogin">Ngày khám</label>
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <select asp-for="Time" asp-items="ViewBag.time" class="form-control border-radius">
+                    </select>
+                    <label asp-for="Time" class="form-label formlogin">Giờ khám</label>
+                    <span asp-validation-for="Time" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="CustomerName" class="form-control border-radius" placeholder="Nhat" />
+                    <label asp-for="CustomerName" class="form-label formlogin">Tên bệnh nhân</label>
+                    <span asp-validation-for="CustomerName" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="CustomerEmail" class="form-control border-radius" placeholder="name@example.com" />
+                    <label asp-for="CustomerEmail" class="form-label formlogin">Email</label>
+                    <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="CustomerPhone" class="form-control border-radius" placeholder="0123456789" />
+                    <label asp-for="CustomerPhone" class="form-label formlogin">Số điện thoại</label>
+                    <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="CustomerAddress" class="form-control border-radius" placeholder="abcxyz" />
+                    <label asp-for="CustomerAddress" class="form-label formlogin">Địa chỉ</label>
+                    <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea asp-for="Reason" class="form-control border-radius" placeholder="abcxyz" style="height: 6.5em;"></textarea>
+                    <label asp-for="Reason" class="form-label formlogin">Lý do</label>
+                    <span asp-validation-for="Reason" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea asp-for="Note" class="form-control border-radius" placeholder="abcxyz" style="height: 8em;"></textarea>
+                    <label asp-for="Note" class="form-label formlogin">Ghi chú</label>
+                    <span asp-validation-for="Note" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input id="login-submit" type="submit" value="Gửi" class="w-100 btn btn-lg btn-primary" />
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<script>
+    window.onload = function() {
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementById('datePicker').setAttribute('min', today);
+    }
+</script>

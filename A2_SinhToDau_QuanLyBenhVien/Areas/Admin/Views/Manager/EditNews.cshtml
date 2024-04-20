@@ -1,0 +1,71 @@
+﻿@model A2_SinhToDau_QuanLyBenhVien.Models.New
+@{
+    ViewData["Title"] = "EditNews";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="container px-4">
+    <h2 class="mt-3 mb-3 ml-3">Sửa Thông Tin Bài Viết</h2>
+    <hr />
+    <div class="row mb-4">
+        <div class="col-md-6 offset-md-3">
+            <form asp-action="EditNews" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group mb-2">
+                    <label asp-for="Title" class="control-label">Tiêu Đề</label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-2">
+                    <label asp-for="NewsTeaser" class="control-label">Giới Thiệu</label>
+                    @Html.TextAreaFor(m => m.NewsTeaser, new { @class = "form-control", rows = 3 })
+                    <span asp-validation-for="NewsTeaser" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="NewsContent" class="control-label">Nội Dung</label>
+                    @* <div>
+                    <textarea id="tiny"></textarea>
+                    </div> *@
+                    <textarea id="tiny" asp-for="NewsContent"></textarea>
+                    @* @Html.TextAreaFor(m => m.NewsContent, new { @class = "form-control",@id ="tiny", rows = 3 }) *@
+                    <span asp-validation-for="NewsContent" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="MainImg" class="control-label">Ảnh Nền</label>
+                    <input type="file" asp-for="MainImg" class="form-control" id="imageInput" />
+                    <span asp-validation-for="MainImg" class="text-danger"></span>
+                    <div class="form-group mb-1 mt-1">
+                        <img id="previewImage" style="max-width: 200px; display: none;" alt="Image preview" />
+                    </div>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary">Cập Nhật</button>
+            </form>
+            <script>
+                document.getElementById('imageInput').addEventListener('change', function (event) {
+
+                    var output = document.getElementById('previewImage');
+
+                    if (this.files && this.files[0]) {
+
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            output.src = e.target.result;
+                            output.style.display = 'block';
+                        };
+
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+
+            </script>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

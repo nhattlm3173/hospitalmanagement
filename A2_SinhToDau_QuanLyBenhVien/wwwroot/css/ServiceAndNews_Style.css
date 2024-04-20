@@ -1,0 +1,177 @@
+﻿.card-img-left img {
+    border-start-start-radius: 0.5em;
+    border-end-start-radius: 0.5em;
+}
+
+#col-main-left {
+    padding-right: 0;
+}
+
+#col-main-right {
+    padding-left: 0;
+}
+
+#col-index-service {
+    border-start-end-radius: 1em;
+    border-end-end-radius: 1em;
+    height: 10em;
+}
+
+.col-img {
+    position: relative;
+    overflow: hidden;
+}
+
+    .col-img::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%; /* Bắt đầu ở ngoài phần visible của hình ảnh */
+        width: 50%; /* Chiều dài của đường sáng */
+        height: 100%;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.2)0%, transparent 50%); /* Màu sắc của đường sáng */
+        transition: left 0.5s ease; /* Tạo hiệu ứng chuyển động */
+        transform: skewX(-15deg); /* Nghiêng chéo */
+    }
+
+    .col-img:hover::before {
+        left: 110%;
+        transition: left 0.5s ease; /* Tạo hiệu ứng chuyển động */
+    }
+
+    .col-img::before {
+        transition: none; /* Loại bỏ transition khi không hover */
+    }
+
+
+
+#col-index-news {
+    padding: 60px 30px 30px 45px;
+    width: 100%;
+    height: 100% !important;
+    background-color: aliceblue;
+}
+
+.box-title {
+    margin: 0 0 28px 0;
+}
+
+    .box-title a {
+        text-decoration: none !important;
+        font-size: 1.125rem;
+    }
+
+.box-text p {
+    font-size: 0.925rem;
+    text-align: start;
+    height: 6.4em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 4; /* Hiển thị tối đa 3 dòng */
+    line-height: 1.6em; /* Đặt độ cao của dòng */
+    max-height: 6.4em; /* 3 dòng * 1.6em = 4.8em */
+    text-overflow: ellipsis; /* Hiển thị dấu "..." khi vượt quá */
+}
+.pagination .page-item{
+    padding: 0 10px;
+}
+    .pagination .page-item .page-link {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 50%;
+        background: #c77dff;
+        width: 40px;
+        height: 40px;
+        color: #fff;
+        font-size: 1rem;
+        text-decoration: none;
+    }
+    .pagination .page-item.active .page-link {
+        background-color: #5a189a;
+    }
+    .pagination .page-item:hover .page-link {
+        background-color: #5a189a;
+    }
+
+
+        .card-img-top {
+            position: relative;
+            overflow: hidden;
+        }
+
+    .card-img-top::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%; /* Bắt đầu ở ngoài phần visible của hình ảnh */
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+        transition: left 0.5s ease; /* Tạo hiệu ứng chuyển động */
+        transform: skewX(-15deg); /* Nghiêng chéo */
+    }
+
+#card-new-service .card-img-top:hover::before {
+    left: 120%;
+    transition: left 0.5s ease; /* Tạo hiệu ứng chuyển động */
+}
+
+.card-img-top::before {
+    transition: none; /* Loại bỏ transition khi không hover */
+}
+
+#card-new-service a {
+    text-decoration: none !important;
+}
+
+#card-new-service:hover .card-body {
+    background-image: linear-gradient(to left, #FB6F92, #ff8fab);
+}
+
+    #card-new-service:hover .card-body a {
+        color: white !important;
+    }
+
+    #card-new-service:hover .card-body .card-text {
+        color: white !important;
+    }
+
+#card-new-service {
+    padding: 0px;
+    border-bottom-left-radius: 1em !important;
+    border-bottom-right-radius: 1em !important;
+    border: 0;
+    background-color: aliceblue;
+}
+
+    #card-new-service .card-body {
+        border-bottom-left-radius: 0.8em !important;
+        border-bottom-right-radius: 0.8em !important;
+        padding: 15px 35px 25px 15px;
+        height: 10em;
+    }
+
+        #card-new-service .card-body .card-title {
+            height: 3em;
+            font-size: 1.125rem;
+        }
+
+.card-text p {
+    font-size: 0.925rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 3; /* Hiển thị tối đa 3 dòng */
+    line-height: 1.6em; /* Đặt độ cao của dòng */
+    max-height: 4.8em; /* 3 dòng * 1.6em = 4.8em */
+    text-overflow: ellipsis; /* Hiển thị dấu "..." khi vượt quá */
+}

@@ -1,0 +1,174 @@
+﻿.box-img {
+    overflow: hidden;
+    position: relative;
+    border-radius: 0.8em;
+}
+
+    .box-img img {
+        transition: transform 0.3s ease;
+        transform-origin: center center;
+    }
+
+    .box-img:hover img {
+        
+        transform: scale(1.2) translate(-5%, -5%);
+    }
+
+.box-title {
+    color: #9d4edd;
+    font-weight:600;
+}
+#service-show-all {
+    background-color: white;
+    border: 1px solid #FB6F92;
+    color: #FB6F92;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+    #service-show-all:hover {
+        background-color: #FB6F92;
+        color: white;
+        transition: 0.5s ease;
+    }
+
+#col-introduce {
+    width: 50%;
+}
+.about {
+    padding: 0;
+    overflow: hidden;
+}
+
+    .about .text {
+        padding-top: 0;
+        color: #010101;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .about .big-bg {
+        padding-top: 25px;
+        width: 100% !important;
+    }
+
+        .about .big-bg .img-wrapper {
+            width: auto;
+            height: 445px;
+            max-height: 100%;
+        }
+
+            .about .big-bg .img-wrapper img {
+                -o-object-fit: cover;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+
+
+    .about .background {
+        margin-left: -30px;
+        background: #e5f7ff;
+        padding: 80px 40px;
+        height: 445px;
+    }
+
+    .about #col-introduce .background .content p {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        unicode-bidi: isolate;
+    }
+
+.about2 {
+    position: relative;
+    padding: 50px 0;
+    overflow: hidden;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../Images/sumenh4.jpg'); /* Đường dẫn đến hình ảnh nền */
+    background-size: cover; /* Hiển thị hình ảnh với kích thước bằng với kích thước của phần tử */
+    background-position: center; /* Canh giữa hình ảnh */
+    filter: blur(10px); /* Áp dụng hiệu ứng mờ */
+    z-index: -1;
+    opacity: 0.3; /* Độ trong suốt của hình ảnh mờ */
+}
+
+
+#row-introduce .col-md-6 {
+    display: flex; /* Sử dụng flexbox để các cột trong một hàng có chiều cao bằng nhau */
+}
+
+.about-figure {
+    position: relative; /* Định vị tương đối để hộp chứa nằm trên hình ảnh */
+    overflow: hidden; /* Ẩn phần ngoài của hình ảnh */
+    margin-bottom: 30px; /* Khoảng cách phía dưới của mỗi hình ảnh và nội dung */
+    max-height: 300px; /* Chiều cao tối đa cho hình ảnh */
+}
+
+.img-overlay {
+    position: absolute; /* Định vị tuyệt đối để overlay lên hình ảnh */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu nền với độ mờ */
+}
+
+.img-fluid {
+    width: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng của hộp chứa */
+    height: auto; /* Tự động điều chỉnh chiều cao */
+}
+
+.caption {
+    position: absolute; /* Định vị tuyệt đối để nội dung nằm trên hình ảnh */
+    bottom: 20px; /* Khoảng cách từ dưới lên */
+    left: 0;
+    right: 0;
+    color: #fff; /* Màu văn bản */
+    text-align: center; /* Canh giữa nội dung */
+    padding: 0 20px; /* Khoảng cách lề trái và phải */
+    max-height: 300px; /* Chiều cao tối đa cho phần caption */
+    overflow: auto; /* Cho phép cuộn nếu nội dung vượt quá chiều cao */
+}
+
+
+
+
+.about3 .big-img {
+    width: 100px; /* Kích thước của hình ảnh tròn */
+    height: 100px;
+    border-radius: 50%; /* Kích thước của hình tròn */
+    overflow: hidden; /* Ẩn phần ngoài của hình ảnh */
+    margin: 0 auto; /* Canh giữa hình ảnh trong cột */
+}
+
+    .about3 .big-img .border-img {
+        width: 100%;
+        height: 100%;
+        background-color: #5a189a; /* Màu nền của hình tròn */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .about3 .big-img img {
+        max-width: 100%; /* Đảm bảo hình ảnh không vượt quá kích thước của phần tử */
+        height: auto; /* Tự động điều chỉnh chiều cao */
+    }
+
+.about3 .txt {
+    text-align: center; /* Căn giữa văn bản */
+    color: #5a189a; /* Màu hồng */
+    font-weight: bolder; /* Độ đậm của font */
+}

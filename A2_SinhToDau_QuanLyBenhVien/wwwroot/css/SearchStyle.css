@@ -1,0 +1,149 @@
+﻿.main-search {
+}
+
+    .main-search #card1 {
+        overflow:hidden;
+        border-radius: 0.8em!important;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        transform: translateY(0);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Độ đổ bóng */
+    }
+
+        .main-search #card1:hover {
+            transform: translateY(-5px); /* Nổi lên từ dưới lên */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Đổi độ đổ bóng */
+        }
+
+    .main-search #search-col-left {
+        text-align: center !important;
+        overflow: hidden;
+        border-right: 3px solid #FB6F92;
+    }
+
+    .main-search #search-col-right {
+        text-align: center !important;
+        overflow: hidden;
+    }
+
+    .main-search .img-top {
+        position: relative;
+        overflow: hidden;
+    }
+
+        .main-search .img-top::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%; /* Bắt đầu ở ngoài phần visible của hình ảnh */
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+            transition: left 0.5s ease; /* Tạo hiệu ứng chuyển động */
+            transform: skewX(-15deg); /* Nghiêng chéo */
+        }
+        .main-search .img-top:hover::before {
+            left: 120%;
+            transition: left 0.5s ease;
+        }
+        .main-search .img-top::before {
+            transition: none;
+        }
+        .main-search .img-top img {
+            width: 100%;
+            height: 19.5em;
+        }
+
+    .main-search h2 {
+        color: #5a189a;
+    }
+
+    .main-search .content-search {
+        padding: 15px 30px 30px 15px;
+        height: 10em;
+    }
+
+        .main-search .content-search .search-title {
+            text-align: start;
+            font-weight: bolder;
+            font-size: 1.125rem;
+            color: #5a189a;
+        }
+
+        .main-search .content-search .search-text-teaser {
+            font-size: 0.925rem;
+            text-align: start;
+            height: 4.8em;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            -webkit-line-clamp: 3; /* Hiển thị tối đa 3 dòng */
+            line-height: 1.6em; /* Đặt độ cao của dòng */
+            max-height: 4.8em; /* 3 dòng * 1.6em = 4.8em */
+            text-overflow: ellipsis; /* Hiển thị dấu "..." khi vượt quá */
+        }
+    /*====================================================================================================================*/
+    .main-search h2 {
+        text-align: center;
+    }
+    .main-search .img-left {
+        position: relative;
+        overflow: hidden;
+    }
+
+        .main-search .img-left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%; /* Bắt đầu ở ngoài phần visible của hình ảnh */
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+            transition: left 0.5s ease; /* Tạo hiệu ứng chuyển động */
+            transform: skewX(-15deg); /* Nghiêng chéo */
+        }
+
+        .main-search .img-left:hover::before {
+            left: 120%;
+            transition: left 0.5s ease;
+        }
+
+        .main-search .img-left::before {
+            transition: none;
+        }
+    .main-search #search-col2-left .img-left img {
+        width: 100%;
+        border-start-start-radius: 1em;
+        border-end-start-radius: 1em;
+    }
+
+    .main-search #search-col2-right {
+        overflow: hidden;
+    }
+
+        .main-search #search-col2-right .content-search2 {
+            padding: 60px 30px 30px 45px;
+        }
+
+            .main-search #search-col2-right .content-search2 .search-title2 {
+                margin-bottom: 28px;
+            }
+
+                .main-search #search-col2-right .content-search2 .search-title2 a {
+                    font-weight: bolder;
+                    font-size: 1.125rem;
+                    color: #5a189a;
+                    text-decoration: none;
+                }
+
+            .main-search #search-col2-right .content-search2 .search-text-teaser2 {
+                font-size: 0.925rem;
+                text-align: start;
+                height: 6.4em;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                -webkit-line-clamp: 4; /* Hiển thị tối đa 3 dòng */
+                line-height: 1.6em; /* Đặt độ cao của dòng */
+                max-height: 6.4em; /* 3 dòng * 1.6em = 4.8em */
+                text-overflow: ellipsis; /* Hiển thị dấu "..." khi vượt quá */
+            }

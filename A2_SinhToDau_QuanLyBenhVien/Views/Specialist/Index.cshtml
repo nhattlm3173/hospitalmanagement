@@ -1,0 +1,30 @@
+﻿@model IEnumerable<A2_SinhToDau_QuanLyBenhVien.Models.Specialist>
+<div class="container">
+    <div class="section-title mb-5">
+        <p class="d-flex justify-content-center">DANH SÁCH CHUYÊN KHOA</p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        @* ====================================COL============================= *@
+        @{
+            foreach(var specialist in Model)
+            {
+                <div class="col mt-0 mb-4" id="col">
+                    <div class="special-item d-flex flex-nowrap">
+                        <div class="images-wrap">
+                            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(specialist.SpecialistImg))" alt="@specialist.SpecialistName"/>
+                        </div>
+                        <div class="content">
+                            <div class="sub-title">
+                                <a class="btn" asp-area="" asp-controller="Specialist" asp-action="Detail" asp-route-id="@specialist.Id" style="color: #9d4edd; font-size:16px;font-weight:bolder;">@specialist.SpecialistName</a>
+                            </div>
+                            <div class="btn-left">
+                                <a class="btn" asp-area="" asp-controller="Specialist" asp-action="Detail" asp-route-id="@specialist.Id">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

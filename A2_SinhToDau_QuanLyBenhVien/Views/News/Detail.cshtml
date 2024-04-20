@@ -1,0 +1,20 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model A2_SinhToDau_QuanLyBenhVien.Models.New
+<div class="container">
+    <div class="section-title mb-3 justify-content-center">
+        <p class="d-flex justify-content-center m-0">@Model.Title</p>
+        <p class="d-flex justify-content-center m-0">🍀</p>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="main-img-detail">
+            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.MainImg))" alt="Diagnostic" width="100%" height="550px" />
+        </div>
+    </div>
+    <section>
+        @Html.Raw(Model.NewsContent)
+    </section>
+</div>

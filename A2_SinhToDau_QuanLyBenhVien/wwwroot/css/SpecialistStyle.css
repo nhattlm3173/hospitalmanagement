@@ -1,0 +1,27 @@
+﻿.images-wrap {
+    padding: 8px;
+    background-image: linear-gradient(to top, #9d4edd, #e0aaff);
+    border-bottom-left-radius: 1em;
+    border-top-left-radius: 1em;
+}
+
+.special-item {
+    border-radius: 1em;
+    padding: 0px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 -1px 3px rgba(0, 0, 0, 0.08), 1px 0 3px rgba(0, 0, 0, 0.08);
+}
+
+    .special-item .content {
+    }
+
+        .special-item:hover a{
+            color: red;
+        }
+.section-title{
+    margin: 1em 0;
+}
+    .section-title p {
+        color: #5a189a;
+        font-size: 30px;
+        font-weight: bolder;
+    }

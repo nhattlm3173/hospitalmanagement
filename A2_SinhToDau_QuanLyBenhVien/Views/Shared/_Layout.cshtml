@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - A2_SinhToDau_QuanLyBenhVien</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/SpecialistStyle.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/ServiceAndNews_Style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/IntroduceStyle.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/SearchStyle.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/ContactStyle.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/CustomerGuideStyle.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-paginator/1.4.1/css/bootstrap-paginator.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdi/font@5.x/css/materialdesignicons.min.css">
+
+
+    <link rel="stylesheet" href="~/A2_SinhToDau_QuanLyBenhVien.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-UT3PrqqU1gN0T7Cs+UIY0t0+PupzjUhHA+xJjIv5S5+dfk7OomHANvDTFol4pe1ObpCkIzSR5DwJ3n/HIptcKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <section class="header-site">
+            <nav class="navbar navbar-expand-xl navbar-toggleable-xl navbar-light bg-white border-bottom box-shadow p-0" style="height:7.25em;">
+                <div class="container h-100">
+                    <img class="navbar-brand p-0 h-100" src="~/Images/LogoTeam.png" asp-area="" asp-controller="Home" asp-action="Index" width="300px" height="99.2px" />
+                    <div>
+                        <button id="toggleButton" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon align-items-md-start"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse" id="collapse-div">
+                        <div class="row row-cols-1 row-cols-md-1">
+                            <div class="col" id="col-main1" style="padding-top:8px;">
+                                <div class="navbar-nav" id="col1" style="align-items: center;">
+                                    @* <input class="search" type="search" name="search" placeholder="Tìm kiếm" /> *@
+                                    <form asp-controller="Search" asp-action="index" method="post">
+                                        <input type="text" class="search" name="keyword" placeholder="Tìm kiếm" />
+                                    </form>
+                                    <a id="MakeAppointment" class="Header-btn btn-gra text-center" asp-area="" asp-controller="Appointment" asp-action="MakeAppointment">ĐĂNG KÝ KHÁM</a>
+                                    <partial name="_LoginPartial" />
+                                </div>
+                            </div>
+                            <div class="col p-0" id="col-main2" style="background-color:#f8f9fa;border-start-start-radius: 15px;border-start-end-radius: 15px;overflow:hidden;border-bottom: 1px solid #dee2e6;">
+                                <ul class="navbar-nav h-100" id="col2">
+                                    <li class="nav-item">
+                                        <div class="title">
+                                            <a class="nav-link" asp-area="" asp-controller="Introduce" asp-action="Index" style="color: #FB6F92; font-weight: bolder">TRANG CHỦ</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="title">
+                                            <a class="nav-link" asp-area="" asp-controller="Service" asp-action="Index" style="color: #FB6F92; font-weight: bolder">DỊCH VỤ</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="title">
+                                            <a class="nav-link" asp-area="" asp-controller="Specialist" asp-action="Index" style="color: #FB6F92; font-weight: bolder">CHUYÊN KHOA <img src="~/Icons/dropdown.png" alt="" /></a>
+
+                                        </div>
+                                        <div class="dropdown-content">
+                                            @{
+                                                var Specialist = ViewBag.specialist as SelectList;
+                                                if (Specialist != null)
+                                                {
+                                                    foreach (var item in Specialist)
+                                                    {
+                                                        <a class="text-white" asp-area="" asp-controller="Specialist" asp-action="Detail" asp-route-id="@item.Value">@item.Text</a>
+                                                    }
+                                                }
+                                            }
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="title">
+                                            <a class="nav-link" asp-area="" asp-controller="News" asp-action="Index" style="color: #FB6F92; font-weight: bolder">TIN TỨC</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="title">
+                                            <a class="nav-link" asp-area="" asp-controller="CustomerGuide" asp-action="Index" style="color: #FB6F92; font-weight: bolder">HƯỚNG DẪN KHÁCH HÀNG</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="title">
+                                            <a class="nav-link" asp-area="" asp-controller="Contact" asp-action="Index" style="color: #FB6F92; font-weight: bolder">LIÊN HỆ</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        @*                     <partial name="_LoginPartial" /> *@
+                    </div>
+                </div>
+            </nav>
+        </section>
+    </header>
+    <div class="">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer border-top flex-grow-0">
+        <div>
+            <img class="navbar-brand" src="~/Images/LogoTeam.png" asp-area="" asp-controller="Home" asp-action="Index" width="25%" />
+            <ul>
+                <li>Lô E2 Khu Công nghệ cao, TP. Thủ Đức</li>
+                <li>Số điện thoại: (028) 3666 9555</li>
+                <li>Email: stdhospital@gmail.com</li>
+                <li>Website: bvsinhtodau.vn</li>
+            </ul>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

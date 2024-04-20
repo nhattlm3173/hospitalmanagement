@@ -1,0 +1,29 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout !=  null)
+    {
+        Layout = parentLayout.ToString();
+    }
+    else
+    {
+        Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+    }
+}
+
+<h1 id="headerloginpage" class="text-center">Quản lý tài khoản</h1>
+
+<div>
+    <h2 id="headerloginpage" class="text-center">Chỉnh sửa cài đặt tài khoản</h2>
+    <hr />
+    <div class="row m-5 px-5 justify-content-center">
+        <div class="col-md-3">
+            <partial name="_ManageNav" />
+        </div>
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

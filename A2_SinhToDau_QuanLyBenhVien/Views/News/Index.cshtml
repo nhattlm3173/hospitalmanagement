@@ -1,0 +1,115 @@
+﻿@model IEnumerable<A2_SinhToDau_QuanLyBenhVien.Models.New>
+@{
+    Pager pager = new Pager();
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+}
+@* @{
+    List<New> reversedModel = Model.ToList();
+    // reversedModel.Reverse();
+} *@
+<div class="news">
+    <div class="container">
+        <div class="section-title mb-3">
+            <p class="d-flex justify-content-center m-0">TIN TỨC</p>
+            <p class="d-flex justify-content-center m-0">🍀</p>
+        </div>
+        <div class="news-main">
+            <div class="row row-cols-md-2 mb-5" id="row-first-service">
+                
+                @foreach (var news in Model)
+                {
+                    <div class="col" id="col-main-left">
+                        <div class="col-bg" id="col-img-news">
+                            <div class="col-img">
+                                <a class="card-img-left" asp-area="" asp-controller="News" asp-action="Detail" asp-route-id="@news.Id">
+                                    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(news.MainImg))" alt="Diagnostic" width="100%" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" id="col-main-right">
+                        <div class="card" id="col-index-news" style="border:none;box-shadow:none;border-start-end-radius:1em;border-end-end-radius:1em;">
+                            <div class="box-title">
+                                <a asp-area="" asp-controller="News" asp-action="Detail" asp-route-id="@news.Id" style="color: #5a189a; font-size:16px;font-weight:bolder;">@news.Title.ToUpper()</a>
+                            </div>
+                            <div class="box-text">
+                                <p>@news.NewsTeaser</p>
+                            </div>
+                            <div class="box-btn">
+                                <a class="btn mt-5" id="service-show-all" asp-area="" asp-controller="News" asp-action="Detail" asp-route-id="@news.Id">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    break;
+                }
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @{
+                var firstItemSkipped = false; // Biến để đánh dấu xem đã bỏ qua phần tử đầu tiên chưa
+            }
+            @{
+                foreach (var news in Model)
+                {
+                    if (!firstItemSkipped)
+                    {
+                        firstItemSkipped = true; // Đánh dấu rằng đã bỏ qua phần tử đầu tiên
+                        continue; // Bỏ qua phần tử đầu tiên và chuyển đến phần tử tiếp theo trong vòng lặp
+                    }
+                    <div class="col mt-0 mb-4">
+                        <div class="card" id="card-new-service">
+                            <a class="card-img-top" asp-area="" asp-controller="News" asp-action="Detail" asp-route-id="@news.Id">
+                                <img src="data:image/jpeg;base64,@(Convert.ToBase64String(news.MainImg))" alt="Diagnostic" width="100%" height="260px" />
+                            </a>
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <a asp-area="" asp-controller="Service" asp-action="Detail" asp-route-id="@news.Id" style="color: #5a189a; font-size:16px;font-weight:bolder;">@news.Title.ToUpper()</a>
+                                </div>
+                                <div class="card-text">
+                                    <p>@news.NewsTeaser</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <div id="pagination-container" class="d-flex justify-content-center">
+            @if (pager.TotalPages > 0)
+            {
+                <ul class="pagination">
+                    @if (pager.CurrentPage > 1)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-controller="News" asp-action="Index" asp-route-pg="1" title="Đến trang đầu">«</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" asp-controller="News" asp-action="Index" asp-route-pg="@(pager.CurrentPage - 1)" title="Đến trang @(pager.CurrentPage - 1)">‹</a>
+                        </li>
+                    }
+                    @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+                    {
+                        <li class="page-item @(pge == pager.CurrentPage ? "active" : "")">
+                            <a class="page-link" asp-controller="News" asp-action="Index" asp-route-pg="@pge" title="Đến trang @pge">@pge</a>
+                        </li>
+                    }
+                    @if (pager.CurrentPage < pager.TotalPages)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-controller="News" asp-action="Index" asp-route-pg="@(pager.CurrentPage + 1)" title="Đến trang @(pager.CurrentPage + 1)">›</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" asp-controller="News" asp-action="Index" asp-route-pg="@pager.TotalPages" title="Đến trang cuối">»</a>
+                        </li>
+                    }
+                </ul>
+            }
+        </div>
+
+    </div>
+</div>

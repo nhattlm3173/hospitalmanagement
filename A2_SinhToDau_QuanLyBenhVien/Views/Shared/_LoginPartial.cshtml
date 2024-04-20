@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<ul class="navbar-nav navbar-right">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        var user = await UserManager.GetUserAsync(User);
+
+        if (User.IsInRole("Admin"))
+        {
+            <li class="nav-item dropdown">
+                <a class="Header-btn nav-link dropdown-toggle text-white w-100" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Hello @UserManager.GetUserName(User)!
+                    <span class="caret"></span>
+                </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li class="dropdown-item">
+                        <a class="nav-link text-dark " asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Account Setting</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a class="nav-link text-dark " asp-area="admin" asp-controller="Manager" asp-action="Index" title="Admin Layout">Admin Layout</a>
+                    </li>
+                    <li class="dropdown-item">
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                    </form>
+                </li>
+            </ul>
+            </li>
+        }
+        else
+        {
+             <li class="nav-item dropdown">
+                <a class="Header-btn nav-link dropdown-toggle text-white w-100" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Hello @UserManager.GetUserName(User)!
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li class="dropdown-item">
+                        <a class="nav-link text-dark " asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Account Setting</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </li>
+        }
+
+
+    }
+    else
+    {
+        @*      <li class="nav-item">
+    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+    </li> *@
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Login">
+                <button type="submit" class="Header-btn">ĐĂNG NHẬP CHO NHÂN VIÊN</button>
+            </form>
+        </li>
+    }
+</ul>
